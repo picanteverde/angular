@@ -34,7 +34,21 @@ angular.module("firstApp", ["ngRoute"])
 				}
 			}
 		},
-		"ListController": ["personService", function(personService) {
+		"ListController": ["personService", function(personService){
 			this.persons = personService.persons;
 		}]
+	})
+	.directive("personData", function() {
+		return {
+			restrict: "A",
+			scope: {
+				person: "="
+			},
+			templateUrl: "view/personData.html",
+			link: function($scope, $element, $attributes) {
+				$scope.showData = function(data) {
+					alert(data.name + ", " + data.city)
+				};
+			}
+		};
 	});
