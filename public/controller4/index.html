@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="firstApp">
+<head>
+	<title></title>
+</head>
+<body>
+<div ng-controller="FirstController as ctrl">
+	<h3>Insert Person</h3>
+	Name: <input type="text" ng-model="ctrl.new.name">
+	City: <input type="text" ng-model="ctrl.new.city">
+	<br/>
+	<button ng-click="ctrl.addName(ctrl.new)">Add Name</button>
+	<br/>
+	<h3>Persons</h3>
+	Search: <input type="text" ng-model="ctrl.search.name"> 
+	<ul>
+		<li ng-repeat="p in ctrl.persons | filter: ctrl.search | orderBy:'name'">{{p.name}} - {{p.city}}</li>
+	</ul>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+<script>
+angular.module("firstApp",[]).controller("FirstController", function(){
+	var that = this;
+	that.persons = [
+		{
+			"name": "Alejandro",
+			"city": "Cordoba",
+		},
+		{
+			"name": "Mauricio",
+			"city": "San Luis"
+		}
+	];
+	that.addName = function(newP){
+		if(newP.name && newP.city){
+			that.persons.push(angular.copy(newP));
+			/*
+			that.names.push({
+				name: newP.name,
+				city: newP.city
+			});
+			*/
+			newP.name = "";
+			newP.city = "";
+		}
+	}
+});
+</script>
+</body>
+</html>

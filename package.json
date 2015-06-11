@@ -1,0 +1,19 @@
+{
+  "name": "angularjs",
+  "version": "0.0.1",
+  "description": "angular.js examples",
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^0.8.0",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.12.36",
+    "karma-chrome-launcher": "^0.1.12",
+    "karma-jasmine": "^0.3.5"
+  },
+  "keywords": [
+    "angular.js",
+    "samples"
+  ],
+  "author": "Alejandro Hernández <picanteverde@gmail.com> (picanteverde)",
+  "license": "MIT"
+}

@@ -1,0 +1,7 @@
+<div>
+	<h3>Persons</h3>
+	Search: <input type="text" ng-model="ctrl.search.name"> 
+	<ul>
+		<li ng-repeat="p in ctrl.persons | filter: ctrl.search | orderBy:'name'">{{p.name}} - {{p.city}}</li>
+	</ul>
+</div>
