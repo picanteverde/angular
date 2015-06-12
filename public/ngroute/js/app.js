@@ -24,16 +24,16 @@ angular.module("firstApp", ["ngRoute"])
 		}];
 	})
 	.controller({
-		"NewController": function(personService) {
+		"NewController": ["personService",function(pS) {
 			var that = this;
 			that.addName = function(newP) {
 				if (newP.name && newP.city) {
-					personService.persons.push(angular.copy(newP));
+					pS.persons.push(angular.copy(newP));
 					newP.name = "";
 					newP.city = "";
 				}
 			}
-		},
+		}],
 		"ListController": ["personService", function(personService) {
 			this.persons = personService.persons;
 		}]

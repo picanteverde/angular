@@ -47,7 +47,9 @@ angular.module("firstApp", ["ngRoute"])
 			templateUrl: "view/personData.html",
 			link: function($scope, $element, $attributes) {
 				$scope.showData = function(data) {
-					alert(data.name + ", " + data.city)
+					//alert(data.name + ", " + data.city)
+					data.name = "pancho";
+					var a = $element;
 				};
 			}
 		};

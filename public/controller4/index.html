@@ -9,12 +9,12 @@
 	Name: <input type="text" ng-model="ctrl.new.name">
 	City: <input type="text" ng-model="ctrl.new.city">
 	<br/>
-	<button ng-click="ctrl.addName(ctrl.new)">Add Name</button>
+	<button ng-click="ctrl.addName(ctrl.new,$event)">Add Name</button>
 	<br/>
 	<h3>Persons</h3>
-	Search: <input type="text" ng-model="ctrl.search.name"> 
+	Search: <input type="text" ng-model="ctrl.search"> 
 	<ul>
-		<li ng-repeat="p in ctrl.persons | filter: ctrl.search | orderBy:'name'">{{p.name}} - {{p.city}}</li>
+		<li ng-repeat="p in ctrl.persons track by $index | filter: ctrl.search | orderBy:'name'">{{p.name}} - {{p.city}}</li>
 	</ul>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
@@ -33,15 +33,16 @@ angular.module("firstApp",[]).controller("FirstController", function(){
 	];
 	that.addName = function(newP){
 		if(newP.name && newP.city){
-			that.persons.push(angular.copy(newP));
+			that.persons.push(newP);
 			/*
 			that.names.push({
 				name: newP.name,
 				city: newP.city
 			});
-			*/
+			
 			newP.name = "";
 			newP.city = "";
+			*/
 		}
 	}
 });

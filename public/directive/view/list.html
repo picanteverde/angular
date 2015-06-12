@@ -4,4 +4,7 @@
 	<ul>
 		<li ng-repeat="p in ctrl.persons | filter: ctrl.search | orderBy:'name'"><div person-data person="p"></div></li>
 	</ul>
+	<ul>
+		<li ng-repeat="p in ctrl.persons | filter: ctrl.search | orderBy:'name'">{{p.name}}</li>
+	</ul>
 </div>
